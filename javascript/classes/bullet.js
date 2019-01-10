@@ -24,6 +24,3 @@ class Bullet extends Entity {
         ctx.drawImage(this.model, super.getX(), super.getY(), 50, 50);
     }
 }
-
-/*
-*/

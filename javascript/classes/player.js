@@ -4,7 +4,6 @@ class Player extends Entity {
         super(x, y, 'player');
         this.model = new Image();
         this.model.src = 'img/rocket.svg';
-        console.log("PLAYER");
     }
 
     draw(ctx) {

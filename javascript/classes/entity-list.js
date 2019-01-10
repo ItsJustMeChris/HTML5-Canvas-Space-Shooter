@@ -25,4 +25,14 @@ class EntityList {
             this.entities[i].draw(ctx);
         }
     }
+
+    getType(type) {
+        let tmp = [];
+        for (let i = 0; i < this.entities.length; i++) {
+            if (this.entities[i].type == type) {
+                tmp.push(this.entities[i]);
+            }
+        }
+        return tmp;
+    }
 }

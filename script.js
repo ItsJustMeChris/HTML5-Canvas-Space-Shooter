@@ -13,20 +13,23 @@ let testEnemy = new Enemy(400, Math.random() * (400 - 100) + 100, 20);
 
 EL.registerEntity(testEnemy);
 
-EL.registerEntity(new Enemy(400, Math.random() * (400 - 100) + 100, 20));
-EL.registerEntity(new Enemy(400, Math.random() * (400 - 100) + 100, 20));
-EL.registerEntity(new Enemy(400, Math.random() * (400 - 100) + 100, 20));
+EL.registerEntity(new Enemy(400, Math.random() * (400 - 100) + 100, 30));
+EL.registerEntity(new Enemy(400, Math.random() * (400 - 100) + 100, 40));
+EL.registerEntity(new Enemy(400, Math.random() * (400 - 100) + 100, 50));
 
 
 let its = 0;
 
 function draw() {
     EL.draw();
-    if (testEnemy.canShoot()) {
-        EL.registerEntity(testEnemy.shoot(player.getY(), player.getY()));
-    }
 
+    let enemies = EL.getType('enemy');
+
+    for (let i = 0; i < enemies.length; i++) {
+        if (enemies[i].canShoot()) {
+            EL.registerEntity(enemies[i].shoot(player.getY(), player.getY()));
+        }
+    }
 }
 
 setInterval(draw, 60);
-

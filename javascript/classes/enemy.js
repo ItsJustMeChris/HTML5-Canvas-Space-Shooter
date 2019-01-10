@@ -13,7 +13,6 @@ class Enemy extends Entity {
     }
 
     shoot(tx, ty) {
-        console.log(tx, ty, "ATTEMPT MAKE BULLET");
         return new Bullet(super.getX(), super.getY(), tx, ty);
     }
 
