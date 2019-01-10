@@ -20,4 +20,12 @@ class Entity {
     setY(y) {
         this.y = y;
     }
+
+    moveUp() {
+        this.y += 10;
+    }
+
+    moveDown() {
+        this.y -= 20;
+    }
 }

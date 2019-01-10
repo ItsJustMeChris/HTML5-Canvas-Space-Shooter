@@ -23,4 +23,11 @@ class Bullet extends Entity {
         }
         ctx.drawImage(this.model, super.getX(), super.getY(), 50, 50);
     }
+
+    checkHit(entity) {
+        return !(entity.getX() > (super.getX() + 50) ||
+            (entity.getX() + 50) < super.getX() ||
+            entity.getY() > (super.getY() + 50) ||
+            (entity.getY() + 50) < super.getY());
+    }
 }
