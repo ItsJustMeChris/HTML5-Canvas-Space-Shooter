@@ -9,4 +9,8 @@ class Player extends Entity {
     draw(ctx) {
         ctx.drawImage(this.model, super.getX(), super.getY(), 50, 50);
     }
+
+    shoot() {
+        return new Bullet(super.getX(), super.getY(), 500, super.getY(), 'player');
+    }
 }

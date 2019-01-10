@@ -13,7 +13,7 @@ class Enemy extends Entity {
     }
 
     shoot(tx, ty) {
-        return new Bullet(super.getX(), super.getY(), tx, ty);
+        return new Bullet(super.getX(), super.getY(), tx, ty, 'enemy');
     }
 
     canShoot() {

@@ -1,7 +1,8 @@
 class Bullet extends Entity {
 
-    constructor(x, y, tx, ty) {
+    constructor(x, y, tx, ty, source = "misc") {
         super(x, y, 'bullet');
+        this.source = source;
         this.model = new Image();
         this.model.src = 'img/bullet.svg';
         this.targetX = tx;
@@ -22,6 +23,10 @@ class Bullet extends Entity {
             super.setX(super.getX() + .5);
         }
         ctx.drawImage(this.model, super.getX(), super.getY(), 50, 50);
+    }
+
+    hasReachedGoal() {
+        return Math.sqrt(((super.getX() - this.targetX) * (super.getX() - this.targetX)) + ((super.getY() - this.targetY) * (super.getY() - this.targetY))) <= 1;
     }
 
     checkHit(entity) {
