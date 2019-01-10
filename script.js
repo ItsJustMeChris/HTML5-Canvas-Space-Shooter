@@ -47,7 +47,7 @@ function draw() {
 
         for (let e = 0; e < enemies.length; e++) {
             if (bullets[i].source == "player" && bullets[i].checkHit(enemies[e])) {
-                EL.removeEntity(enemies[i]);
+                EL.removeEntity(enemies[e]);
             }
         }
     }
