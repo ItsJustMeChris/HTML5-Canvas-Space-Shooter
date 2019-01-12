@@ -25,11 +25,11 @@ function draw() {
         return false;
     }
 
-    EL.draw();
-
     if (EL.getType('enemy').length == 0) {
         gameState.innerHTML = "WINNER";
     }
+
+    EL.draw();
 
     EL.getType('bullet').forEach((bullet) => {
         if (bullet.hasReachedGoal()) {
