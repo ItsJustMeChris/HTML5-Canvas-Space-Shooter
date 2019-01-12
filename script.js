@@ -41,6 +41,7 @@ function draw() {
             running = false;
         }
 
+        let enemies = EL.getType('enemy');
         for (let e = 0; e < enemies.length; e++) {
             if (bullet.source == "player" && bullet.checkHit(enemies[e])) {
                 EL.removeEntity(enemies[e]);
