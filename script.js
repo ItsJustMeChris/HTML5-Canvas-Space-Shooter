@@ -27,36 +27,32 @@ function draw() {
 
     EL.draw();
 
-    let enemies = EL.getType('enemy');
-    let bullets = EL.getType('bullet');
-
-    if (enemies.length == 0) {
+    if (EL.getType('enemy').length == 0) {
         gameState.innerHTML = "WINNER";
     }
 
-    for (let i = 0; i < bullets.length; i++) {
-
-        if (bullets[i].hasReachedGoal()) {
-            EL.removeEntity(bullets[i]);
+    EL.getType('bullet').forEach((bullet) => {
+        if (bullet.hasReachedGoal()) {
+            EL.removeEntity(bullet);
         }
 
-        if (bullets[i].source == "enemy" && bullets[i].checkHit(player)) {
+        if (bullet.source == "enemy" && bullet.checkHit(player)) {
             gameState.innerHTML = "OVER | KILLED BY ENEMIES";
             running = false;
         }
 
         for (let e = 0; e < enemies.length; e++) {
-            if (bullets[i].source == "player" && bullets[i].checkHit(enemies[e])) {
+            if (bullet.source == "player" && bullet.checkHit(enemies[e])) {
                 EL.removeEntity(enemies[e]);
             }
         }
-    }
+    });
 
-    for (let i = 0; i < enemies.length; i++) {
-        if (enemies[i].canShoot()) {
-            EL.registerEntity(enemies[i].shoot(player.getX(), player.getY()));
+    EL.getType('enemy').forEach((enemy) => {
+        if (enemy.canShoot()) {
+            EL.registerEntity(enemy.shoot(player.getX(), player.getY()));
         }
-    }
+    });
 }
 
 setInterval(draw, 1);
